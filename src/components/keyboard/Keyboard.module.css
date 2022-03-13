@@ -1,0 +1,11 @@
+.keyboard {
+  margin: 0 8px;
+  user-select: none;
+}
+
+.keyboard_row {
+  display: flex;
+  width: 100%;
+  margin: 0 auto 8px;
+  touch-action: manipulation;
+}
