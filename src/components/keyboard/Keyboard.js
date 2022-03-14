@@ -1,4 +1,5 @@
 import Row from "../layout/Row";
+import Card from "../ui/Card";
 import classes from "./Keyboard.module.css";
 
 const rowKeys = [
@@ -19,7 +20,11 @@ const Keyboard = (props) => {
     />
   ));
 
-  return <div className={classes.keyboard}>{rows}</div>;
+  return (
+    <Card className={classes.keyboard_container}>
+      <div className={classes.keyboard}>{rows}</div>
+    </Card>
+  );
 };
 
 export default Keyboard;
