@@ -1,22 +1,59 @@
+import { useState, useEffect, useCallback } from "react";
+
 import Row from "../layout/Row";
 import Card from "../ui/Card";
 import classes from "./Keyboard.module.css";
-
-const rowKeys = [
-  ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
-  ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
-  ["ENTER", "Z", "X", "C", "V", "B", "N", "M", "BACKSPACE"],
-];
+import { keyboardValues } from "../../util/constants";
 
 const Keyboard = (props) => {
+  const [rowKeys, setRowKeys] = useState(
+    keyboardValues.map((keysRow) =>
+      keysRow.map((key) => {
+        return { key, status: "default" };
+      })
+    )
+  );
+
+  const keyClickHandler = (event) => {
+    const key = event.target.innerHTML;
+    props.onCursor(key);
+    // setRowKeys((prevKeys) =>
+    //   prevKeys.map((row) =>
+    //     row.map((keyDict) => {
+    //       if (keyDict.key === key) {
+    //         keyDict.status = "absent";
+    //       }
+    //       return keyDict;
+    //     })
+    //   )
+    // );
+  };
+
+  const keyDownHandler = useCallback(
+    (event) => {
+      const { key } = event;
+      props.onCursor(key.toUpperCase());
+    },
+    [props]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", keyDownHandler);
+
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, [keyDownHandler]);
+
   const rows = rowKeys.map((keysList, i) => (
     <Row
       key={"row" + i}
       rowNum={i}
       columnNum={keysList.length}
-      values={keysList}
+      keysList={keysList}
       className={classes.keyboard_row}
       type="buttons"
+      onKeyClick={keyClickHandler}
     />
   ));
 

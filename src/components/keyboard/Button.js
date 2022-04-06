@@ -1,15 +1,11 @@
 import classes from "./Button.module.css";
 
 const Button = (props) => {
-  const onClickHandler = () => {
-    console.log(props.value);
-
-    // TODO - Update this logic to reflect clicked letters to the game board
-  };
+  const btnClasses = `${classes.button} ${classes[props.keyData.status]}`;
 
   return (
-    <div className={classes.button} onClick={onClickHandler}>
-      {props.value}
+    <div className={btnClasses} onClick={props.onKey}>
+      {props.keyData.key}
     </div>
   );
 };
