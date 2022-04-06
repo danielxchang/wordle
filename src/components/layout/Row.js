@@ -8,12 +8,16 @@ const Row = (props) => {
   const cells =
     props.type === "tiles"
       ? zeroToN(props.columnNum).map((tileId) => (
-          <Tile key={"tile" + props.rowNum + tileId} />
+          <Tile
+            key={"tile" + props.rowNum + tileId}
+            tileValue={props.boardValues[props.rowNum * 5 + tileId]}
+          />
         ))
       : zeroToN(props.columnNum).map((buttonId) => (
           <Button
             key={"button" + props.rowNum + buttonId}
-            value={props.values[buttonId]}
+            keyData={props.keysList[buttonId]}
+            onKey={props.onKeyClick}
           />
         ));
 
