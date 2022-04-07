@@ -2,7 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Built with React.
+Wordle front-end built with React.
+See https://github.com/dcphantom/wordle-api for the back-end API.
 
 ## Available Scripts
 
