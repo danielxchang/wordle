@@ -19,3 +19,19 @@
   display: inline-block;
   padding-bottom: 100%;
 }
+
+.default {
+  background: #ffffff;
+}
+
+.present {
+  background: #c9b548;
+}
+
+.correct {
+  background: #6aaa64;
+}
+
+.absent {
+  background: #787c7e;
+}

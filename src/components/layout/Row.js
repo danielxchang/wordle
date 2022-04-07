@@ -10,7 +10,7 @@ const Row = (props) => {
       ? zeroToN(props.columnNum).map((tileId) => (
           <Tile
             key={"tile" + props.rowNum + tileId}
-            tileValue={props.boardValues[props.rowNum * 5 + tileId]}
+            tileData={props.boardData[props.rowNum * 5 + tileId]}
           />
         ))
       : zeroToN(props.columnNum).map((buttonId) => (

@@ -11,7 +11,7 @@ const Board = (props) => {
       columnNum={BOARD_COLUMNS}
       className={classes.board_row}
       type="tiles"
-      boardValues={props.boardValues}
+      boardData={props.boardValues}
     />
   ));
 
