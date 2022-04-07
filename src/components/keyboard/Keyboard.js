@@ -3,11 +3,11 @@ import { useState, useEffect, useCallback } from "react";
 import Row from "../layout/Row";
 import Card from "../ui/Card";
 import classes from "./Keyboard.module.css";
-import { keyboardValues } from "../../util/constants";
+import { KEYBOARD_VALUES } from "../../util/constants";
 
 const Keyboard = (props) => {
   const [rowKeys, setRowKeys] = useState(
-    keyboardValues.map((keysRow) =>
+    KEYBOARD_VALUES.map((keysRow) =>
       keysRow.map((key) => {
         return { key, status: "default" };
       })
@@ -16,7 +16,7 @@ const Keyboard = (props) => {
 
   const keyClickHandler = (event) => {
     const key = event.target.innerHTML;
-    props.onCursor(key);
+    props.onCursor(key, setRowKeys);
     // setRowKeys((prevKeys) =>
     //   prevKeys.map((row) =>
     //     row.map((keyDict) => {
@@ -32,7 +32,7 @@ const Keyboard = (props) => {
   const keyDownHandler = useCallback(
     (event) => {
       const { key } = event;
-      props.onCursor(key.toUpperCase());
+      props.onCursor(key.toUpperCase(), setRowKeys);
     },
     [props]
   );

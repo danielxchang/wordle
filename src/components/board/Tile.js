@@ -1,7 +1,10 @@
 import classes from "./Tile.module.css";
 
 const Tile = (props) => {
-  return <div className={classes.tile}>{props.tileValue}</div>;
+  const { value, status } = props.tileData;
+  const tileClasses = `${classes.tile} ${classes[status]}`;
+
+  return <div className={tileClasses}>{value}</div>;
 };
 
 export default Tile;
