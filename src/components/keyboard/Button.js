@@ -1,7 +1,8 @@
 import classes from "./Button.module.css";
 
 const Button = (props) => {
-  const btnClasses = `${classes.button} ${classes[props.keyData.status]}`;
+  const status = props.keyData.status;
+  const btnClasses = `${classes.button} ${classes[status]}`;
 
   return (
     <div className={btnClasses} onClick={props.onKey}>

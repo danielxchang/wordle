@@ -1,0 +1,9 @@
+.modal-container {
+  visibility: hidden;
+  transition-delay: 400ms;
+  transition-property: visibility;
+}
+
+.visible {
+  visibility: visible;
+}
