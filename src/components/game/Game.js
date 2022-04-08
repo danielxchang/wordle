@@ -69,7 +69,7 @@ const Game = (props) => {
   };
 
   const checkGuess = (guess, setKeys) => {
-    fetch("http://localhost:8000/check-word", {
+    fetch(`https://wordle-api-dc.herokuapp.com/check-word`, {
       method: "POST",
       body: JSON.stringify({ guess, answer: props.answer }),
       headers: {

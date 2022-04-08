@@ -7,7 +7,7 @@ const App = () => {
   const [word, setWord] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:8000/word")
+    fetch(`https://wordle-api-dc.herokuapp.com/word`)
       .then((response) => response.json())
       .then((data) => {
         if (!data) throw new Error("Failed fetching word!");
