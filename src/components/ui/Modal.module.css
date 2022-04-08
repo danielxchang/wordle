@@ -1,0 +1,52 @@
+.content {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid #f6f7f8;
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  animation: SlideIn 1000ms;
+  max-width: 500px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.message {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.content.closing {
+  animation: SlideOut 200ms;
+}
+
+@keyframes SlideIn {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes SlideOut {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+}

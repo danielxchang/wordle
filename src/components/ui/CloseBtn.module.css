@@ -1,0 +1,13 @@
+.close-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+game-icon {
+  position: fixed;
+  user-select: none;
+  cursor: pointer;
+}
